@@ -1,21 +1,19 @@
-function stringChop(str, size) {
-    // If the string is null or size is not a positive integer, return an empty array
-    if (str === null || size <= 0) {
-        return [];
+function divide(arr, n) {
+let currentSubArray=[];
+let currentSum = 0;
+let result = [];
+for (let item in arr) {
+    if(currentSum + item <= n) { 0+3 < 6 | 3 +1 < 6
+            currentSubArray.push(item); [0, 3, 1] //  currentSubArray when the loop closes
+            currentSum += item; [0+3+1] // Last iteration ends here
+    } else {
+        result.push(currentSubArray); // This line which returns the final output after collecting all sub-arrays is not executed
+        currentSubArray = [item];
+        currentSum=item;
     }
-
-    // Initialize an empty array to hold the chunks
-    let chunks = [];
-
-    // Loop through the string and slice it into chunks of the specified size
-    for (let i = 0; i < str.length; i += size) {
-        chunks.push(str.slice(i, i + size));
+    if(currentSubArray.length > 0) {
+        result.push(currentSubArray);
     }
-
-    return chunks;
 }
-
-// Do not change the code below
-const str = prompt("Enter String.");
-const size = parseInt(prompt("Enter Chunk Size."), 10);  // Convert chunk size to integer
-alert(stringChop(str, size).join(', '));  // Join chunks with ', ' for display
+return result;
+}
